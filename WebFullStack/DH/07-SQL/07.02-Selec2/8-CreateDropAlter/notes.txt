@@ -1,0 +1,22 @@
+#Criando tabela
+CREATE TABLE usuario (
+    usuario_id INT AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(50),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    data_nascimento DATE,
+    PRIMARY KEY (usuario_id),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+#ALTER TABLE
+    ADD coluna
+    MODIFY coluna
+    DROP coluna
+    
+#add nova coluna telefone
+ALTER TABLE usuario ADD telefone VARCHAR(50);
+
+#apagando tabela usuario
+DROP TABLE IF EXIST usuario;
+

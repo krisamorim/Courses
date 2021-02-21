@@ -1,0 +1,13 @@
+#npx -> allows you to use a module withou installing it
+
+
+
+1- Install Yarn (other package manager)
+    nom install yarn -g
+
+
+2- Run the CREAT REACT APP express, like express generation  withou intalling it, due it is a biggest package
+
+    npx create-react-app project_name
+
+3- 

@@ -1,0 +1,17 @@
+let yearsOld = 35; //Int Number
+let price = 10.65 //decimal Number
+let name = 'Jhon' //String;
+let hasMoney = true // Boolean;
+var person = {name: 'Jhon', yearsOld: 34, single: true} //many types
+var colors = ['blue', 'black', 'orange'] // array, a data group, like object, it is considered an object type
+
+/*
+Ps.1: How to get data from objetc? -> person.name = Jhon
+
+PS.2: How to get data from Array? colors[0] = blue
+*/
+
+Especial types:
+NaN //Not a Number
+Null //Null value
+Undefined // undefined value

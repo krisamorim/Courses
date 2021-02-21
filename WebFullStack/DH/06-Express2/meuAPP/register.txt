@@ -1,0 +1,113 @@
+1- Criar projeto usando express generator
+    express --view=ejs meuAPP
+    cd meuAPP
+    npm install
+
+2- criar pasta de controler
+    mkdir controller
+
+3- Criando acesso para pag contato para testar a query string ?nome=kris&idade=22 
+    3.1 - criar o arquivo de controller
+    touch controller/IndexController.js
+
+        3.1.1 - Sem usar pagina view (deve usar o metodo send)
+            let IndexController = {
+                semView: (req,res) => {
+                    let {nome, idade} = req.query;
+                    res.send("Olá "+nome+"! Você tem "+idade+ " anos")
+                }
+            }
+            module.exports = IndexController;
+
+        3.1.2 - Usando pag view (deve usar o metodo render)
+            let IndexController ={
+                comView: (req, res) => {
+                    let {nome, idade} = req.query;
+                    res.render('contatoComView', {nomeUsuario:nome, idadeUsuario:idade})
+                }
+            }
+            module.exports = IndexController;
+
+        3.1.2.1 - Criando pag contatoComView.ejs
+            touch views/contatoComView.ejs
+            crie uma estrutura html e coloque o seguinte conteudo dentro do body:
+            Olá <%= nomeUsuario %>! Você tem <%=idadeUsuario %> anos
+
+    3.2 - criar rota no arquivo routes/index.js 
+        var IndexController = require('../controler/IndexController');
+
+        3.2.1 - Sem usar pagina view
+            router.get('/contatosemview', IndexController.semView);
+
+        3.2.2 - Usando pag view
+            router.get('/contatocomview' IndexController.comView);
+
+ps: nesse momento pode testar entrando na pasta meuAPp e executando nodemon start.
+Então no navegador acesse localhost:3000/comtatosemview?nome=kris&idade=35 ou localhost:3000/comtatocomview?nome=kris&idade=35
+
+4- Criando um form e utilizar o metodo GET
+    PS: para não termos que ficar digitando dados na url iremos fazer um form e assim iremos ver como o metodo get (que foi colocado no form) manda as informações do form direto na URL, por isso é considereado inseguro
+
+    4.1 - Configurando controller no controller/IndexController.js
+        contatoConfirmar: (req,res) => {
+            let {nome, idade} = req.query;
+            res.send("Nome: "+nome+"\n e \nIdade: "+idade+"\n Foram enviados!");
+        },
+        contatoUsandoFormComView: (req,res) => {
+            let {nome,idade} = req.query;
+            res.render('contatoUsandoFormComView', {nomeUsuario:nome, idadeUsuario:idade})
+         }
+
+
+    4.2 - Configurando rota no routes/index.js
+        4.2.1 - Rota para pagina com o form
+            router.get('/contatousandoformcomview', IndexController.contatoUsandoFormComView);
+
+        4.2.2 - Rota para a pagina quando clicar em enviar
+            router.get('/contatoconfirmar', IndexController.contatoConfirmar);
+
+
+    4.3 - Criando view views/contatoUsandoFormComView.ejs
+        Coloque os dados a seguir entre as tag do body da estrutura html:
+        <form action="/contatoconfirmar" method="GET">
+            <input type="text" name="nome" placeholder="nome">
+            <br>
+            <input type="text" name="idade" placeholder="idade">
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+
+5- Criando um form e utilizar o metodo POST
+    Poderiamos criar as rotas no routes/index.js, mas iremos criar um novo arquivo de rota, somente para dar uma variada.
+    
+    5.1- Criando e configurando o novo arquivo de rota:
+        5.1.1- crie o arquivo routes/produtos.js
+        touch routes/produtos.js
+
+        5.1.2- Add as linhas ao arquivo app.js
+        var produtosRouter = require('./routes/produtos');
+        app.use('/produtos', produtosRouter);
+
+        5.1.3- Add as seguintes linhas ao arquivo routes/produtos.js
+        let express = require('express);
+        let router = express.Router();
+        let ProdutoController = require ('../controller/ProdutoController');
+
+        router.get('/criar', ProdutoController.viewForm);
+        router.post('/criar', ProdutoController.salvarForm);
+
+    5.2- Criando uma view produto
+        touch view/produto.ejs
+        criar um formulario e colocar no method POST e direcionar o action para /produtos/criar
+
+    5.3- Criando o controller
+        touch controller/ProdutoController.js
+        let ProdutoController = {
+            viewForm: (req,res) => res.render('produto'),
+            salvarForm: (req,res) => {
+                let {nomeProduto, precoProduto} = req.body;
+                res.send("O produto "+nomeProduto+", teve o preço atualizado para "+precoProduto)
+            }
+        }
+
+        module.exports = ProdutoController; 

@@ -1,0 +1,12 @@
+LIMIT - limita a quty do resultado
+
+EXE.:
+Mostrar os 5 primeiros registros da tabela filme:
+    SELECT * FROM filme LIMIT 5 
+
+Mostrar os 5 primeiros registros da tabela filme depois dos 10 primeiros registros:
+    SELECT * FROM filme LIMIT 5 
+
+
+A Equipe de Marketing abriu uma solicitação para que consulte na base de dados de sua empresa os 8 primeiros clientes (em ordem alfabética) que possuem mais de 18 anos de idade.
+    SELECT * FROM clientes WHERE idade>18 ORDER BY nome ASC LIMIT 8 OFFSET 0

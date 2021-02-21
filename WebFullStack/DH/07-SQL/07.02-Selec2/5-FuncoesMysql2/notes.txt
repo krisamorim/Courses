@@ -1,0 +1,32 @@
+COUNT
+Obter qnty de registro em uma tabela
+    SELECT COUNT(*) FROM MOVIES
+    
+    Contar o numero de id na tabela movies em que o genero é igual a 3
+    SELECT COUNT(id) AS total FROM movies WHERE genre_id = 3;
+
+MAX
+Obter valor maximo
+    Mesma sintaxe de count
+    Faça uma query ao banco de dados que nos traga o total da fatura mais cara que o cliente número 48 possui.
+    SELECT max(valor) FROM faturas WHERE cliente_id=48
+
+MIN
+Obter valor minimo
+    Mesma sintaxe de count
+
+AVG
+Media
+    Mesma sintaxe de count
+    Vamos pegar a banda do AC / DC como exemplo e verificar o banco de dados do álbum 'Let There Be Rock', determinar a duração média das músicas neste álbum.
+    SELECT a.nome, AVG(m.duracao) FROM musicas m INNER JOIN albuns a ON m.album_id=a.id WHERE a.nome='Let There Be Rock';
+
+SUM
+Soma
+    Mesma sintaxe de count
+    queremos saber quanto dinheiro as pessoas gastaram em nossa empresa. Faça uma consulta ao nosso banco de dados que adicione o total de todas as faturas emitidas pela empresa no ano de 2020.
+    SELECT SUM(valor) FROM faturas WHERE YEAR(data)=2020
+
+
+
+     

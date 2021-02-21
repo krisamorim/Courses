@@ -1,0 +1,17 @@
+line box: (display: inline)
+    - are boxes that occupy the width and height of their contents
+    - divs inline -> span, a, img
+    
+    
+line block: (display: block)
+    -are boxes that occupy the entire width of the page and then create a break line, placing the boxes one over the other
+    - divs blocks -> <div>, <p>, <h1>, <h2>, <h3>, <h4>, <h5>, <h6>, <ul>, <ol>, <li>, <form>, <header>, <footer>, <section>, <article>
+
+
+attribute:
+    none -> hide box
+
+use:
+    - header -> to put in initial content from page
+    - main -> to put in the content from the page
+    - footer -> to put in the final content from the page

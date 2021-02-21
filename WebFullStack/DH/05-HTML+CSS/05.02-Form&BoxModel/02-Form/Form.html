@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Arial';
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulários</h1>
+    <form action="validar.php" method="POST">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" value="Preenchido">
+        <br>
+        <label for="apelido">Nickname</label>
+        <input type="text" id=apelido name="apelido" placeholder="coloque seu apelido">
+        <br>
+        <label for="telefone">Fone</label>
+        <input type="tel" id="telefone" name="telefone">
+        <br>
+        <label for="idade">Idade</label>
+        <input type="number" id="idade" name="idade">
+        <br>
+        <label for="email">Email</label>
+        <input type="email"  id="email" name="email">
+        <br>
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha">
+        </p>
+        <!-- #a way how to do an input
+        <input type="submit" value="enviar">
+        -->
+        <!--Another way how to do an input. type="submit" is not necessary when button is within a form-->
+        <button>Enviar</button>
+    </form>
+</body>
+</html>
