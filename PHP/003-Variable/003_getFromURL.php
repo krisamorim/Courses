@@ -7,13 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        $n1 = 5;
-        $n2 = 10;
-        $sum = $n1 + $n2;
-        echo "1st way: The sum is $sum </br>";
-        echo "2nd way: The sum is ".($n1+$n2);
-        echo "<br> <br> *Check code to compare";
+    <h2>Retype URL lik: .php?a=10&b=5</h2>
+    <?php
+        $a = $_GET["a"];
+        $b = $_GET["b"];
+        echo "$a + $b is ".($a+$b);
     ?>
 </body>
 </html>
