@@ -4,19 +4,20 @@
         $tot = func_num_args();
         $v = 0;
 
-        for($x=0;$x<=$tot;$x++){
+        for($x=0;$x<$tot;$x++){
             $v += $args[$x];
         }
         return $v;
     }
 
+    #need to fix
     function minus(){
         $args = func_get_args();
         $totArgs = func_num_args();
         $v = $args[0];
 
-        for($x=1;$x<=$totArgs;$x++){
-            $v -= $args[$x];
+        for($x=1;$x<$totArgs;$x++){
+            $v =- $args[$x];
         }
         return $v;
     }
