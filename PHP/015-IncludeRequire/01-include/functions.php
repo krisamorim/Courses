@@ -11,14 +11,16 @@
     }
 
     #need to fix
-    function minus(){
-        $args = func_get_args();
-        $totArgs = func_num_args();
-        $v = $args[0];
+    function minus($x,$y,$z){
+        // $args = func_get_args();
+        // $totArgs = func_num_args();
+        // $v = $args[0];
 
-        for($x=1;$x<$totArgs;$x++){
-            $v =- $args[$x];
-        }
+        // for($x=1;$x<$totArgs;$x++){
+        //     $v =- $args[$x];
+        //}
+        $res = $x - $y;
+        $v = $res -$z;
         return $v;
     }
 
