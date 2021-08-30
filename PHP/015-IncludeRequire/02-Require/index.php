@@ -8,7 +8,9 @@
 </head>
 <body>
     <?php
-        
+        //the better to use is require_once, due load just one time
+        require "functions.php";
+        hello();
     ?>
 </body>
 </html>
