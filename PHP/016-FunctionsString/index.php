@@ -9,38 +9,38 @@
 </head>
 <body>
     <section id="links">
-    <a href="#str_word_count">section str_word_count</a> | <a href="#trim">section trim</a> | <a href="#strlen">section strlen</a> | <a href="#prinf">section printf</a> | <a href="#print_r">section print_r</a> | <a href="#wordwrap">section wordwarp</a>
-    </section>
-    --------------------------------------------------------------------------------------------------------------------
-    <section id="explode">
-        <h1></h1>
-        <h3>
-
-
-        </h3>
-    </section>
-    --------------------------------------------------------------------------------------------------------------------
-    <section id="str_split">
-        <h1></h1>
-        <h3>
-
-
-        </h3>
-    </section>
-    --------------------------------------------------------------------------------------------------------------------
-    <section id="implode">
-        <h1></h1>
-        <h3>
-
-
-        </h3>
+     <a href="#chr">section chr</a> | <a href="#ord">section ord</a> | <a href="#trim">section trim</a> | <a href="#strlen">section strlen</a> | <a href="#prinf">section printf</a> | <a href="#print_r">section print_r</a> | <a href="#wordwrap">section wordwarp</a> | <a href="#str_word_count">section str_word_count</a> | <a href="#explode">section explode()</a> | <a href="#str_split">Split</a> | <a href="#implode">section implode</a>
     </section>
     --------------------------------------------------------------------------------------------------------------------
     <section id="chr">
-        <h1></h1>
+        <h1>> chr() <</h1>
+        To show the ASCI value
         <h3>
-
-
+        #The code:</br>
+        $number = 99;<br>
+        print("The ASCI value from $number is ".chr($number));<br>
+        <br>
+        #The output:<br>
+        <?php
+        $number = 99;
+        print("The ASCI value from $number is ".chr($number));
+        ?>
+        </h3>
+    </section>
+    --------------------------------------------------------------------------------------------------------------------
+    <section id="ord">
+        <h1>> ord() <</h1>
+        Convert value to ASCI
+        <h3>
+        #The code:</br>
+        $value = "X";<br>
+        print("The $value in ASCI is ".ord($value));<br>
+        <br>
+        #The output:<br>
+        <?php
+        $value = "X";
+        print("The $value in ASCI is ".ord($value));
+        ?>
         </h3>
     </section>
     --------------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@
             ?>
         </h3>
 
-        <h4>To check amount characters</h4>
+        <h4>To check characters' amount</h4>
     </section>
     --------------------------------------------------------------------------------------------------------------------
     <section id="trim">
@@ -105,28 +105,29 @@
     --------------------------------------------------------------------------------------------------------------------
     <section id="printf">
         <!-- Cresting php variables -->
-        <?php
-            $drink = "milk";
-            $price = 0.8;
-        ?>
-        <h1>
-            > printf < </br>
-            We can write:"The milk costs 3.4", like that:</br>
-        </h1>
+        <h1>> printf <</h1>
+        We can write:"The milk costs 3.4", like that:</br>
         <h3>
             <!-- Showing the code and its final result -->
             #The code:<br>
             echo "The $drink costs U$ " . number_format($price,2); </br></br>
             #The final result: <br>
-            <?php echo "The $drink costs U$".number_format($price,2) ?>
+            <?php
+            $drink = "milk";
+            $price = 0.8; 
+            echo "The $drink costs U$".number_format($price,2) 
+            ?>
         </h3>
 
         <h2>or</h2>
 
         <h3>
             <!-- Showing the code and its final result -->
-            #The code: printf("The %s costs U$ %.2f", $drink, $price);<br> <!-- %s means it will receive a string value -->
-            #The final result: <?php printf("The %s cost U$ %.2f", $drink, $price)?><br>
+            #The code:<br>
+            printf("The %s costs U$ %.2f", $drink, $price);<br> <!-- %s means it will receive a string value -->
+            <br>
+            #The final result:<br>
+            <?php printf("The %s cost U$ %.2f", $drink, $price)?><br>
             <!--
             %d -> show decimal number (positive or negative)
             %u -> decimal value (without signal, it means, only the positive numbers)
@@ -188,8 +189,86 @@
             $text = "Here we have a long text to do the test";
             echo "The number of words in sentence &quot;".$text."&quot; is ".str_word_count($text);
             ?>
+            </br>
+            <h4> >>Create a array:</h4>
+            #The code: <br>
+            $textArray = str_word_count($text,1);<br>
+            echo "output: ";<br>
+            print_r($textArray);<br>
+            <br>
+
+            #The output: <br>
+            <?php
+            $textArray = str_word_count($text,1);
+            print_r($textArray);
+            ?>
+
+            <h4>>> Create an array with the position of each word</h4>
+            #The code: <br>
+            $textArray2 = str_word_count($text,2);<br>
+            print_r($textArray2);
+            <br><br>
+
+            #The output<br>
+            <?php
+            $textArray2 = str_word_count($text,2);
+            print_r($textArray2);
+            ?>
         </h3>
     </section>
-    
+    --------------------------------------------------------------------------------------------------------------------
+    <section id="explode">
+        <h1>> To explode <</h1>
+        <h3>
+        #The code <br>
+        $text = "This is simple text";<br>
+        $vector = explode(" ",$text);<br>
+        print_r($vector);<br>
+        <br>
+        #The Output <br>
+        <?php 
+        $text = "This is simple text";
+        $vector = explode(" ",$text);
+        print_r($vector);
+        ?>
+
+        </h3>
+    </section>
+    --------------------------------------------------------------------------------------------------------------------
+    <section id="str_split">
+        <h1>> split() <</h1>
+        <h3>
+        #The code:<br>
+        $name = "Krishnamurtir";<br>
+        $vector = str_split($name);<br>
+        print_r($vector);<br>
+        <br>
+        #The output:<br>
+        <?php
+        $name = "Krishnamurtir";
+        $vector = str_split($name);
+        print_r($vector);
+        ?>
+
+        </h3>
+    </section>
+    --------------------------------------------------------------------------------------------------------------------
+    <section id="implode">
+        <h1>> implode() <</h1>
+        <h3>
+        #The code:<br>
+        $textArray3 = ["My", "name", "is", "Krishnamurtir"];<br>
+        $textImplode = implode(" ",$textArray3);<br>
+        print($textImplode);<br>
+        <br>
+        #The output:<br>
+        <?php
+        $textArray3 = ["My", "name", "is", "Krishnamurtir"];
+        $textImplode = implode(" ",$textArray3);
+        print($textImplode);
+        ?>
+
+        </h3>
+    </section>
  </body>
 </html>
