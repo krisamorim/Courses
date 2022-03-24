@@ -1,1 +1,0 @@
-//go to 00032.01-RotaParametrizads folder

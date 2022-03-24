@@ -1,9 +1,0 @@
-criar uma nova couluma chamada nome com o resultado da query
-    SELECT razao_social_cleinte AS nome FROM cleinte WHERE nome LIKE 'a%';
-
-Criar uma nova tabela chama os alunos com o resultado da pesquisa da tabela alunos_comissao_inicial
-    SELECT nome, sobrenome, idade FROM alunos_comissao_inicial AS 'os alunos';
-
-Criar um resulto que mostra o nome do carros e o valor deles vezes 10, sendo que o nome da coluna que mostra o valor vezes 10 deve ser "novo valor"
-    SELECT nome, valor * 10 AS 'Novo Valor' FROM carros;
-

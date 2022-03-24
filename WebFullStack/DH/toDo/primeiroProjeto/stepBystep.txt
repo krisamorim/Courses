@@ -1,3 +1,0 @@
-1- npm install moment --save
-2- create a file called app.js
-3-

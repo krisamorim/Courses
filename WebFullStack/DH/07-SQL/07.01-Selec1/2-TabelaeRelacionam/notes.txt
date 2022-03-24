@@ -1,2 +1,0 @@
-DER (Diagrama relacional) 
-- Diagrama da tabela fisica

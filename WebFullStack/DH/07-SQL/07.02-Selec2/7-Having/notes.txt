@@ -1,7 +1,0 @@
-mesmo que o where, só que com o HAVING podemos usa-lo em conjunto com funções de agregação para filtrar dados agregados
-SELECT coluna FROM tabela WHERE condicao GROUP BY couna HAVING condicao ORDER BY coluna;
-
-SELECT COUNT(cliente_id), pais FROM clientes GROUP BY pais HAVING COUNT (clienteID) >3;
-
-Faça uma consulta ao banco de dados e tente trazer todas as músicas (tabela musica) que tenham o gênero (coluna genero) blues agrupadas por álbum (coluna album) e que sua duração (coluna duracao) seja superior a 200000 milissegundos.
-    SELECT * FROM musica WHERE genero = 'blues' GROUP BY album HAVING duracao > 200000

@@ -1,8 +1,0 @@
-- Aplicar padding no bootstraping
-https://getbootstrap.com/docs/4.4/utilities/spacing/
-
-- Sistema Grid Bootstrap - Breakpoints
-https://getbootstrap.com/docs/4.4/layout/grid/
-
-- Extensão para ajudar na escrita de EJS - VSCode 
-https://marketplace.visualstudio.com/items?itemName=DigitalBrainstem.javascript-ejs-support
