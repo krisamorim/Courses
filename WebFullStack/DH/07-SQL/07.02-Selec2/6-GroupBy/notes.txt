@@ -1,0 +1,9 @@
+SELECT marca, MAX(preco) FROM carros GROUP BY marca;
+SELECT genero.nome, AVG(duracao) FROM filmes INNER JOIN generos ON generos.id = genero_id GROUP BY genero.nome
+
+
+Contar os registros da coluna nome da tabela filme onde o idioma_id de filmes seja igual o idioma_id da tabela idioma e agrup-los por nome
+SELECT nome, COUNT(*) FROM filme INNER JOIN idioma ON filme.idioma_id = idioma.idioma_id GROUP BY nome;
+
+
+SELECT nome, COUNT(*), MAX(duracao_do_filme) FROM filme INNER JOIN idioma ON filme.idioma_id = idioma.idioma_id GROUP BY nome;

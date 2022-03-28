@@ -1,0 +1,12 @@
+
+Select em tabela de 1 para N, um filme pode ter em vários idiomas.
+A tablea filmes tem os filmes e um coluna informando o idioma do filme, enquanto que a tabela idiomas, tem um ide para cara idioma possivel
+Valos buscar o id dos filme, o titulo do filme, o idioma do filme na tabela filme, depois o id do idioma na tabela idioma seguido do nome do idioma. no from selecionamos as duas tabelas (filme e idioma), então no where fazemos a relação entre as duas. Sem o wherer ele iria cria linhas duplicadas para acompanahr os varios idiomas da tabela idiomas
+    SELECT filme_id, titulo, filme.idioma_id, idioma.idioma_id, nome FROM filme, idioma WHERE filme.idioma_id = idioma.idioma_i;
+
+
+
+Na produtora MusicMundos precisamos exportar uma tabela com os dados de todos os cantores (tabela cantor, coluna nome) que já possuem um patrocinador (tabela patrocinador). 
+***A  conexão da tabela cantor com patrocinador é feita através do campo patrocinador_id (em cantor) com o id (em patrocinador).
+    Qual query satisfaz a busca solicitada? 
+    SELECT cantor.nome FROM cantor, patrocinador WHERE cantor.patrocinador_id = patrocinador.id

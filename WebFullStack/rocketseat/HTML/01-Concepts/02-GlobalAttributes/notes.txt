@@ -1,0 +1,8 @@
+class
+contenteditable -> the content is editable
+data-
+hidden
+id
+style
+tabindex -> allow to navigate through the page using the key "tab" 
+title

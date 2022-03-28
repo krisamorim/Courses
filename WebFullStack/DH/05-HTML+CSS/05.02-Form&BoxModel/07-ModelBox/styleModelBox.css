@@ -1,0 +1,24 @@
+div.caixa1 {
+    background-color: orange;
+    border-top: 5px solid black; /*border on top*/
+}
+
+div.caixa2 {
+    background-color: blueviolet;
+    border: 5px dotted black;
+}
+
+div.caixa3 {
+    background-color: crimson;
+    border-right: 5px solid black;
+}
+
+div {
+    display: inline-block; /*if you remove the boxes they will be on up of each other*/ 
+    width: 200px;
+    height: 200px;
+    margin: 30px auto; /* 30 px to up and down, auto to left and right (will move to the center)*/
+    padding: 40px;
+    box-sizing: border-box; /*very importatne*/
+
+}

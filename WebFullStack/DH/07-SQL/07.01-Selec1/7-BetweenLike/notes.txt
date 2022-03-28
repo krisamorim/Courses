@@ -1,0 +1,9 @@
+Retornar os nome que tenham a letra 'a' como segundo caractere
+    SELECT nome FROM usuarios WHERE idade LIKE '_a%';
+
+Retornar os endereços dos usuários que incluem "paulista"
+    SELECT nome FROM usuarios WHERE endereco LIKE '%Paulista%'
+
+Retorna clientes que começam com 'os' e terminam com 's'
+    SELECT nome from cleintes where nome LIKE 'os%s';
+

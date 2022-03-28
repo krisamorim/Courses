@@ -1,0 +1,139 @@
+<!--
+    CSS - Cascading Style Sheet
+
+    #pseudo-selectors
+    Hover -> change element when mouse is over it
+    focus -> change element when is in focus
+    how to use:
+    element {
+        text-decoration: none;
+        border-color: none;
+    }
+    element:hover {
+        text-decoration: underline;
+        border-color: green;
+    }
+
+    nth-child() -> altera somente um elemento espesificado entre parênteses
+     how to use:
+     p {
+         color: blue;
+     }
+     p:nth-child(2) {
+         color: white;
+         background-color: orange;
+     }
+
+    nth-child(odd) -> only at elements in odd position 
+    nth-child(even) -> only at elements in even position
+    how to use:
+     p:nth-child(even) {
+       background-color: gray;
+     }
+
+-->
+
+
+<!-- EX01 -->
+<html>
+  <head>
+    <title>Primeros seletores</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <p>Olá Mundo</p>
+    <p>Estamos praticando css em nosso site inicrivel!</p>
+  </body>
+</html>
+
+<!--
+    ##CSS style.css:
+    p {
+    color: red;
+    }
+-->
+
+
+<!-- EX02 
+<html>
+  <head>
+    <title>Mais Seletores</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1 id="gigante">Programação Web Full-Stack</h1>
+    
+    <h3>HTML5</h3>
+    <p class="negrito">Descrição</p>
+    <P>Texto formatado para navegadores</P>
+    
+    <h3>CSS</h3>
+    <p class="negrito">Descrição</p>
+    <p>Estilos e aparencia</p>
+    
+    <h3>JS</h3>
+    <p class="negrito">Descrição</p>
+    <p>Interações do Usuario</p>
+  </body>
+</html>
+
+
+h3 {
+  color: blue;
+}
+
+.negrito {
+  font-weight: bold;
+}
+
+#gigante {
+  font-size: 40px;
+}
+
+-->
+
+
+
+<!--
+  Ex03
+
+  <html>
+    <head>
+        <title>Classe e Id</title>
+    </head>
+    <body>
+        <h1 class="destacado">OFERTAS</h1>
+
+        <h3 class="em-maiuscula">Smartphones</h3>
+        <p>Celulares 2020</p>
+
+        <h3 class="em-maiuscula">Notebooks</h3>
+        <p>Gamers, profissionais e outros</p>
+
+        <h3 class="em-maiuscula">Tablets</h3>
+        <p>Leve para qualquer lugar</p>
+
+        <h4 id="whatsapp">Contacte-nos via whastapp!</h4>
+    </body>
+</html>
+
+.destacado {
+    color: gold;
+}
+
+.em-maiuscula {
+    text-transform: uppercase;
+}
+
+#whatsapp {
+    background-color: green;
+    color: white;
+}
+
+
+display: 
+  block -> show elements in block format
+  inline -> show elements in line
+  none -> hit the element
+
+-->

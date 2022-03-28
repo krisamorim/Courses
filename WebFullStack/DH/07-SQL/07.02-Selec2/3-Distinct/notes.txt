@@ -1,0 +1,3 @@
+não replica linhas
+
+SELECT DISTINCT atributo FROM tabela;

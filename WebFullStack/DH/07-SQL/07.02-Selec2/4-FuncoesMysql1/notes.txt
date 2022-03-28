@@ -1,0 +1,42 @@
+CONCAT - concatenar
+    SELECT CONCAT('Nome:', first_name, ' ', 'last_name') AS 'Nome Completo' FROM actors;
+
+COALESCE - preenche um campo caso retorne null
+    SELECT titulo COALESCE(nome, 'sem nome definido') FROM filme LEFT JOIN idioma ON filme.idioma_id = idioma.idioma_id;
+
+DATEDIFF
+Retorna 5 , pois, é a qty aproxima de horas entre 7am e 12:45
+    SELECT DATEDIFF(hora,'2017/08/25 0:00', '2017/08/25 12:45');
+    SELECT nome, DATEDIFF(NOW(),data_contratacao) FROM funcionario;
+
+DATE_FORMAT
+    SELECT primeiro_nome, DATE_FORMAT(data_de_devolucao, "%d/%m/%Y")
+
+DAY, MONTH, YEAR, MINUTE, HOUR
+    SELECT DAY(data_de_devolucao) FROM locadora;
+
+EXTRACT
+Extrai partes de uma data, no caso abaixo o resultado será 21
+    SELECT EXTRACT(SECOND FROM '2014-02-13 08:44:21');
+
+Dentro do sistema MusicMundo queremos que os usuários possam ver suas ultimas faturas. Nessa consulta queremos ver todas as faturas do usuário de numero 2, e também queremos ver apenas o mês da data da fatura. Lembre-se que você deve exibir a identificação do usuário e o mês
+    SELECT id_usuario, extract(MONTH FROM data) FROM fatura WHERE id_usuario = 2
+
+Replace
+Substitui um texto pré determinado
+    SELECT REPLACE(atributo, 'Texto que sairá', 'Texto que irá ficar') FROM tabela;
+
+ LENGTH
+    qual o tamanho de caracteres de um campo
+SELECT LENGTH(atributo) FROM tabela;
+SELECT atributo FROM tabela WHERE LENGTH(atributo) > 10;
+
+CASE
+    SELECT titulo, duracao_filme, 
+    CASE
+        WHEN duracao_filme > 60 THEN 'Filme Longo'
+        ELSE 'Filme Curto'
+    END AS duracao 
+    FROM filme;
+
+

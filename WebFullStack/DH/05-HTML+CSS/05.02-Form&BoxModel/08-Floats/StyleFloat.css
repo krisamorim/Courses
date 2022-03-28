@@ -1,0 +1,39 @@
+header {
+    border: 3px solid gray;
+    padding: 30px;
+    margin: 10px;
+}
+
+main {
+    border: 3px solid gray;
+    padding: 30px;
+    margin: 10px;    
+}
+
+footer {
+    border: 3px solid gray;
+    padding: 30px;
+    margin: 10px;
+}
+
+section {
+    border-top: 2px dotted gray;
+    border-bottom: 2px dotted gray;
+}
+
+article {
+    background-color: #ffa600ad;
+    padding: 20px;
+    margin: 20px 0;
+    float: left;
+    opacity: 0.9;
+    width: 30%;
+}
+
+section.noticias {
+    overflow: hidden;
+}
+
+span {
+    background-color: purple;
+}

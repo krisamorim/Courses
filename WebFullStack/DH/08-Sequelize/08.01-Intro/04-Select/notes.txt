@@ -1,0 +1,39 @@
+findAll -> like SELECT *
+findOne -> Like select with Where, but return just first 
+findByPk -> like select searching for PK
+
+
+################### Add find all ao UserController ###################
+
+const { Usuario } = require('../models');
+const UserController = {
+    index: async (req,res) => {
+        let users = await Usuario.findAll();
+
+        return res.render('usuarios', {users})
+        console.log(users)
+    }
+}
+module.exports = UserController;
+
+################### Exemplo usando findAll usando then ###################
+const Carro = require('models/carros.js');
+Carro.findAll().then((resultados)=>{
+    console.log(resultados);
+});
+
+################### Exemplo usando findOne usando then ###################
+Carro.findOne({
+    where:{
+    nome:'abc'
+    }
+}).then((resultado)=>{
+    console.log(resultado)
+});
+
+################### Exemplo usando findOne usando then ###################
+Carro.findByPk(59).then((resultado)=>{
+    console.log(resultado);
+});
+
+//select * from carro where id=42;

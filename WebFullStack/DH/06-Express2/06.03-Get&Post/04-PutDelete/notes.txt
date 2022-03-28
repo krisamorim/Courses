@@ -1,0 +1,9 @@
+- solicitações feitas por put e delete devem viajar por formularios
+
+- Como para formulários só é permitido post e get, para rusar o put/delete devemos instalar uma dependendcia do node chamada method override (npm install method-override --save)
+
+- após instalar a dependência devemos chama-la no arquivo app.js:
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
+- na tag do form em action devemos adicionar ?_method=PUT' ao final ta rota especificada em action para que o sistema saiba que ele está utilizando o PUT

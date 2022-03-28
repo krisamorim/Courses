@@ -1,0 +1,2 @@
+Middleware são funções que são executadas no meio da execução do pedido do cliente
+Fica entre a rota e controlador

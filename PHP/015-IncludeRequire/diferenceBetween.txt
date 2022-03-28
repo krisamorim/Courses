@@ -1,0 +1,2 @@
+require: is mandatore to load page
+include: page can load without crash
