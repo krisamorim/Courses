@@ -1,0 +1,10 @@
+1º Dia - Rumo ao topo
+https://www.youtube.com/watch?v=kbmYEtkjnDE
+1:05 Cria novo projeto no git lab
+1:58 Craindo instancia EC2 Jenkins
+-------------------------------------------------
+
+2º Dia - #15em1
+https://www.youtube.com/watch?v=jzMF9PdbS_w&list=PLwlq4XZ8aTmeDQYV0S633Gt9_WhoQ_xSz&index=5
+26:00 - explicando ferramentas
+-------------------------------------------------
