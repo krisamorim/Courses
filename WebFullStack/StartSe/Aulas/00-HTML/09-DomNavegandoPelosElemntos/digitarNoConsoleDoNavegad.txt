@@ -1,0 +1,11 @@
+#children no final mostra os filhos desse elemento
+window.document.getElementById("listaAnimais").children
+
+#pegar somente o primeiro filho
+window.document.getElementById("listaAnimais").firstElementChild
+
+#pegar o último
+window.document.getElementById("listaAnimais").lastElementChild
+
+#Descobrir o elemento pai
+window.document.getElementById("aranha").parentElement

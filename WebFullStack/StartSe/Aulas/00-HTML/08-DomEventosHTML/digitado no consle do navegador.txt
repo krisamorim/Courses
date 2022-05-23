@@ -1,0 +1,7 @@
+#Pegando o elemento da pagina que tem id chamado cabecalhoPagina
+var cabecalho = window.document.getElementById("cabecalhoPagina")
+
+#monitorando o click no elemento e mostrando mensagem ao clicar
+abecalho.addEventListener("click", function() {
+    alert('Clicou')
+})
