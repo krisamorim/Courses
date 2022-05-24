@@ -1,0 +1,1 @@
+optamos por usar a tag div, pois a tag aside deve ser utilizada quando o conteúdo está ligado ao conteúdo principal
