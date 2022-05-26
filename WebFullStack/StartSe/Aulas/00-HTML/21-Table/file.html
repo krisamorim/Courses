@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>colspan</h1>
+    <table border="1">
+        <!--Thead é para definir o cabeçalho da tabela-->
+        <thead>
+            <tr>
+                <!-- Usando th no lugar de td o cabeçalho ganha um destaque automaticamente-->
+                <th>Coluna1</th>
+                <th>Coluna2</th>
+                <!-- Unindo duas colunas-->
+                <th colspan="2">Coluna3</th>
+            </tr>    
+        </thead>
+
+        <!--Tbody defini o corpo da tabela-->
+        <tbody>
+            <tr>
+                <td>Dado1</td>
+                <td>Dado2</td>
+                <td>Dado3</td>
+                <td>XXXX</td>
+            </tr>
+            <tr>
+                <td>Dado1</td>
+                <td>Dado2</td>
+                <td>Dado3</td>
+            </tr>
+            <tr>
+                <td>Dado1</td>
+                <td>Dado2</td>
+                <td>Dado3</td>
+            </tr>
+        </tbody>
+
+        <!--Tfoot define o rodapé da tabela-->
+        <tfoot>
+            <tr>
+                <td colspan="4">Este é o rodapé</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br><br>
+
+    <h1>rowspan</h1>
+    <table border="1">
+        <tr>
+            <td rowspan="2">Col1</td>
+            <td rowspan="2">Col2</td>
+            <td>Col3</td>
+            <td>Col4</td>
+        </tr>
+        <tr>
+            <td>Dado1</td>
+            <td>Dado2</td>
+        </tr>
+        <tr>
+            <td>Dado3</td>
+            <td>Dado4</td>
+            <td>Dado5</td>
+            <td>Dado6</td>
+        </tr>
+        <tr>
+            <td>Dado7</td>
+            <td>Dado8</td>
+            <td>Dado9</td>
+            <td>Dado0</td>
+        </tr>
+    </table>
+</body>
+</html>

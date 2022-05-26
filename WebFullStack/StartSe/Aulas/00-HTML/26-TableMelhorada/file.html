@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            /* 5px de espaçamento horizontal e 30px na vertical */
+            border-spacing: 5px 30px;
+            border: 1px solid gray;
+            color: red;
+            /*ESCONDEDO Células vazias SÓ FUNCIONA QUNADO COMBINADO COM border-collapse: separate; */
+            empty-cells: hide;
+        }
+
+        caption {
+            caption-side: bottom;
+            color: blueviolet;
+            font-size: 9pt;
+        }
+
+        thead {
+            color: black;
+            font-size: 16pt;
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+            background-color: lightgray;
+        }
+
+        tbody {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        tfoot {
+            color: gray;
+        }
+
+        tr {
+            border: 1px solid gray;
+        }
+
+        td {
+            border: 1px solid gray;
+        }
+
+        h1, h2, h3 {
+            color: green;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>colspan</h1>
+    <table border="1">
+
+        <!--TAG CAPTION para add legenda-->
+        <caption>Tabela 1. Relação de clientes</caption>
+        <!--Thead é para definir o cabeçalho da tabela-->
+        <thead>
+            <tr>
+                <!-- Usando th no lugar de td o cabeçalho ganha um destaque automaticamente-->
+                <th>Coluna1</th>
+                <th>Coluna2</th>
+                <!-- Unindo duas colunas-->
+                <th colspan="2">Coluna3</th>
+            </tr>    
+        </thead>
+
+        <!--Tbody defini o corpo da tabela-->
+        <tbody>
+            <tr>
+                <td>Dado1</td>
+                <td>Dado2</td>
+                <td>Dado3</td>
+                <td rowspan="3">XXXX</td>
+            </tr>
+            <tr>
+                <td>Dado1</td>
+                <td>Dado2</td>
+                <td>Dado3</td>
+            </tr>
+            <tr>
+                <td>Dado1</td>
+                <td>Dado2</td>
+                <td>Dado3</td>
+            </tr>
+        </tbody>
+
+        <!--Tfoot define o rodapé da tabela-->
+        <tfoot>
+            <tr>
+                <td colspan="4">Este é o rodapé</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br>
+
+    <h1>rowspan</h1>
+    <table border="1">
+        <tr>
+            <td rowspan="2">Col1</td>
+            <td rowspan="2">Col2</td>
+            <td>Col3</td>
+            <td>Col4</td>
+        </tr>
+        <tr>
+            <td>Dado1</td>
+            <td>Dado2</td>
+        </tr>
+        <tr>
+            <td>Dado3</td>
+            <td>Dado4</td>
+            <td>Dado5</td>
+            <td>Dado6</td>
+        </tr>
+        <tr>
+            <td>Dado7</td>
+            <td>Dado8</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h2>isso é um h2</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi dolorum fugiat at perspiciatis alias. Consectetur libero est, enim modi autem suscipit natus ipsum voluptas aperiam facilis numquam explicabo, quod obcaecati.</p>
+
+    <h3>Isso é um h3</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A unde ducimus dolor, aperiam quo harum reiciendis rerum aliquam enim tempore? Et inventore consequatur repudiandae ipsam deleniti non voluptas praesentium soluta.</p>
+</body>
+</html>
