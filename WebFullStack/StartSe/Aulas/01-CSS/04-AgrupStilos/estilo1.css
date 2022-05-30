@@ -1,0 +1,21 @@
+#cabecalho, #rodape{
+    background-color: blue;
+}
+
+/* é aplicado comente nas uls diretas da div com a classe geral */
+.geral > ul{
+    color: red;
+}
+
+#cabecalho, #rodape h1{
+    color: white;
+}
+a.link {
+    color: blueviolet;
+    font-style: oblique;
+    font-size: 40px;
+}
+
+h2{
+    color: aqua;
+}
