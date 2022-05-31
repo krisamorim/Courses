@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo1.css">
+    <title>Document</title>
+    <meta http-equiv="refresh" content="2">
+</head>
+<body>
+    <h1>Formulário</h1>
+    <p>Os campos anotados com <span class="obrigatorio">*</span> são obrigatórios</p>
+
+    <!--Inicio do formulário-->
+    <form action="/pag-proces-dado-do-form" method="post">
+        <!--Div para a label nome com seu respectivo campo para preenchimento-->
+        <div>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" placeholder="Nome completo">
+        </div>
+
+        <!--Div para o campo do email-->
+        <div>
+            <label for="mail" class="obrigatoria">E-mail*:</label>
+            <input type="email" id="mail" placeholder="email@email.com">
+        </div>
+
+        <!--Div para o menu DropDown-->
+        <div>
+            <label for="assunto">Assunto:</label>
+            <select name="assunto" id="assunto">
+
+                <!--Opções-->
+                <option value="N" selected></option>
+                <option value="S">Sugestão</option>
+                <option value="R">Reclamação</option>
+                <option value="E">Elogio</option>
+
+            </select>
+        </div>
+
+        <!--Div da mensagem-->
+        <div>
+            <label for="msg" class="obrigatorio">Mensagem*:</label>
+            <textarea id="msg" cols="30" rows="10"></textarea>
+            <p>Tamanho máximo de 100 caracteres</p>
+        </div>
+
+        <!--Div do botão-->
+        <div>
+            <button type="submit">Enviar mensagem</button>
+        </div>
+        <label>Concordo com os termos</label>
+    </form>
+</body>
+</html>

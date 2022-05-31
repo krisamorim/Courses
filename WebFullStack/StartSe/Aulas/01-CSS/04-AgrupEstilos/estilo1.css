@@ -1,3 +1,4 @@
+/*Podemos agrupar diferente elementos separando por vírguula*/
 #cabecalho, #rodape{
     background-color: blue;
 }
@@ -7,9 +8,12 @@
     color: red;
 }
 
+/*Podemos agrupar diferente elementos separando por vírguula*/
 #cabecalho, #rodape h1{
     color: white;
 }
+
+/*elemnto a que tem classe link*/
 a.link {
     color: blueviolet;
     font-style: oblique;

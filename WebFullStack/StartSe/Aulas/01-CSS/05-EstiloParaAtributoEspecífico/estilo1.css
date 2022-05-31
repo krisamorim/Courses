@@ -1,0 +1,4 @@
+/*Somnete os elentos label que tem um atributo for*/
+label[for] {
+    background: yellow;
+}
