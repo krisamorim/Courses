@@ -1,0 +1,28 @@
+a{
+    font-size: 28px;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: yellow;
+}
+
+a:visited, hi:hover {
+    color: purple;
+}
+
+form div{
+    margin: 10px;
+}
+
+input:hover{
+    background-color: yellow;
+}
+
+input:focus{
+    background-color: aqua;
+}
+
+#meuslinks li:first-child{
+    background-color: red;
+}
