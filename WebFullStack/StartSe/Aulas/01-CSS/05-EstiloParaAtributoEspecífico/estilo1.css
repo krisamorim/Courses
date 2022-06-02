@@ -2,3 +2,39 @@
 label[for] {
     background: yellow;
 }
+
+.obrigatorio {
+    color: red;
+}
+
+input[type=text] {
+     background: lightgray;
+     border: 1px solid black;
+}
+
+form div{
+    margin: 10px;
+}
+
+/*Impacta linha 58*/
+*[href*=ufpa]{
+    background-color: green;
+    color: #FFF;
+}
+
+/*IMpacta código da linha 35,36 e37*/
+option[value=S]{
+    color: blue;
+}
+
+option[value=R] {
+    color: red;
+}
+
+option[value=E]{
+    color: gold;
+}
+
+[placeholder] {
+    color: blue;
+}
