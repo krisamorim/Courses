@@ -1,0 +1,44 @@
+/*AUmentar primeira letra dos textos das tags p*/
+p::first-letter{
+    font-size: 30px;
+    background-color: #AAD;
+}
+
+p{
+    background-color: #CCF;
+}
+
+/*Todos elementos paragrafo de classe destaque*/
+p.destaque::first-letter{
+    font-size: 50px;
+}
+
+div::first-line{
+    color: blue;
+
+}
+
+li{
+    color: green;
+}
+
+
+/* altera todos os marcadores para red */
+::marker {
+    color: red;
+}
+
+/*Sobrescreve a regra geral, por ser, uma regra específica*/
+ul li::marker{
+    color: blue;
+}
+
+/*AO selecionar um texto com o mouse ele ficara com fundo amarelo e cor vermelha*/
+::selection {
+    background-color: yellow;
+    color: red;
+}
+
+div::selection::first-line{
+    color: blue;
+}
