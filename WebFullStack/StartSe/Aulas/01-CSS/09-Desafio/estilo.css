@@ -1,0 +1,36 @@
+.aula{
+    display: flex; /*p/ os elemntos dessa div se comportarem como em grid*/
+    width: 600px;
+    height: 200px;
+    background-color: yellow;
+    padding: 10px;
+    justify-content: space-around; /* Alinhar os itens HORIZONTALMENTE e deixa um espaço entre eles*/
+    align-items: center; /* alinhas os intens VERTICALMENTE */
+}
+
+.css{
+    display: inline-block; /* essa linha permite que uma div fique ao lado da outra (inline) */
+    width: 250px;
+    height: 150px;
+    padding: 5px;
+    border: 1px solid blue;
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    border: 1px solid;
+}
+
+.code{
+    display: inline-block; /* essa linha permite que uma div fique ao lado da outra (inline) */
+    width: 250px;
+    height: 150px;
+    padding: 5px;
+    border: 1px solid blue;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    width: 200px;
+    border: 1px solid;
+}
+
+h3{
+    text-align: center;
+}
