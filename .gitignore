@@ -1,4 +1,4 @@
 /.metadata/
-replit.nix
-/.gitignore
+*.nix
 .gitignore
+.replit
