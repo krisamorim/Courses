@@ -8,7 +8,8 @@
 </head>
 <body>
     <!-- just php -->
-    <?php echo 'Hello World!'; ?>
-
-</body>
+    <?php
+    echo phpversion();
+    ?>
+ </body>
 </html>
