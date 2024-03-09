@@ -9,6 +9,11 @@
 <body>
     <!-- just php -->
     <?php echo 'Hello World!'; ?>
+    <br>
+    <br>
+
+    <!-- PHP + HTML -->
+    <?php echo "<h2>Hello <br> World</h2>"; ?>
 
 </body>
 </html>
