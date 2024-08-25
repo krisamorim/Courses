@@ -1,0 +1,16 @@
+<html>
+    <script>
+        try{
+            console.log("Consultando DB..")
+
+            throw "Erro 1032 ao conectar..." //criado apra que dÊ eerro e entre no catch
+
+            // console.log("Outro comando..")
+        } catch (error){
+            alert("Erro ao conectar")
+            console.error(error)
+        } finally {  //opcional
+            console.log("Execução final")
+        }
+    </script>
+</html>
