@@ -1,0 +1,10 @@
+EDA: Exploratory Data Analysis
+--------------------------------
+Univariate Analysis: Focus on understanding a varaible
+Bivariate Analysis: It involves examinig two variables at a time and their relationship to each other, one of them is called independent variable (is free to vary) while the other  is called the dependent variable (changes in response to changes in the independent variable)
+-------------------------------
+outliers:  non-standard values
+-------------------------------
+Caussian Distribution
+-------------------------------
+Bivariate analysis, or Two-varaibles Analysis: involves examining two variables at a time and their relationships to each other. One variable called THE INDEPENDENT VARIABLE (is free do vary) and other called THE DEPENDENT VARIABLE, (changes in response to changes in the independent variable)
