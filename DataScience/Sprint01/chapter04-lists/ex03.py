@@ -15,7 +15,12 @@ movies = ['The Shawshank Redemption', 'The Godfather', 'The Dark Knight', 'Schin
 movies.sort()
 print(movies)
 
-#serted() returns a new sorted list, leaving the original list unchanged
+#sorted() returns a new sorted list, leaving the original list unchanged
 movies_duration = [142, 175, 152, 195, 201, 154, 178, 139]
 movies_duration_sorted = sorted(movies_duration, reverse=True)# classificar a lista movies_duration usando sorted()
 print(movies_duration_sorted)# imprima a lista resultante aqui
+
+#Sort
+ages = [32, 45, 39, 29, 25, 32]
+ages.sort(reverse=True)# escreva seu código aqui
+print(ages)

@@ -14,17 +14,16 @@ row = [1, 2]
 row.extend([3, 4])
 print(row)
 
-
 #insert() - adiciona um elemento em uma posição específica da lista
 lista = [1, 2, 3]
 lista.insert(1, 4)
 print(lista) # [1, 4, 2, 3]
+
 #pop() - remove um elemento da lista e retorna o valor removido
 lista = [1, 2, 3]
 valor_removido = lista.pop(1)
 print(lista) # [1, 3]
 print(valor_removido) # 2
-
 
 titanic_movie = ['Titanic', 'USA', 1997, 'drama', 194]
 # adicione o nome do diretor antes do gênero do filme

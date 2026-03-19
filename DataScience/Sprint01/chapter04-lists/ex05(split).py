@@ -12,4 +12,7 @@ words = phrase.split('-')
 print(f'\nVariable phrase is: {phrase} ')
 print(f'Variable words is: {words}')
 
-
+#========= converte a string names em uma lista de nomes usando split() e imprima a lista resultante ==================
+names = 'Jack Wilson,Nina Brown,Alex Smith,Brian Perez,David Martinez,John Kim'
+names_split = names.split(",")# escreva seu código aqui
+print(names_split)
