@@ -1,0 +1,2 @@
+'''
+"garbage in, garbage out" (GIGO). Ou seja, se entra lixo no processo de análise, a chance é que sairá lixo no resultado. Nosso objetivo é te ajudar a identificar valores ausentes, dados duplicados e erros de apresentação em seus dados para evitar GIGO.'''
