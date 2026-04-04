@@ -16,6 +16,7 @@ flowchart LR
     D -->|No| I{Does the gap have significant impact?}
     I -->|Yes| C
     I -->|No| E
+```
 
 # Flowchart for data analisys
 ```mermaid
