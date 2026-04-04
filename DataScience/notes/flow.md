@@ -1,4 +1,5 @@
 # Flowchart for receiving demand (summary)
+```mermaid
 flowchart LR
     A((Start)) --> B[Receive request]
     B --> C[Clarify requirements]
@@ -17,6 +18,7 @@ flowchart LR
     I -->|No| E
 
 # Flowchart for data analisys
+```mermaid
 flowchart TD
     A((Start)) --> B[Understand business context]
     B --> C[Identify data sources]
