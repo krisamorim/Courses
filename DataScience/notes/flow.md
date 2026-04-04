@@ -41,7 +41,7 @@ flowchart TD
     G -->|No| L
 
     L --> M[Define metrics and KPIs]
-    M --> N[Perform exploratory data analysis (EDA)]
+    M --> N[Perform exploratory data analysis - EDA]
     N --> O[Generate insights]
 
     O --> P[Validate findings with stakeholders]
