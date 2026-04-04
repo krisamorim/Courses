@@ -2,9 +2,20 @@
 ```mermaid
 flowchart TD
     A((Início)) --> B[Receber demanda]
-    %%A[Início] B[Usuário insere credenciais] -->
-    B --> C{Dados válidos?}
-    C -->|Sim| D[Acesso liberado]
-    C -->|Não| E[Exibir erro]
-    D --> F[Fim]
-    E --> F
+    B --> C[Fazer perguntas]
+    C --> D{Ficou tudo claro?}
+
+    %% Se não estiver claro
+    D -->|Não| E{Pendência tem grande impacto?}
+    E -->|Sim| C
+    E -->|Não| F[Alinhar expectativa]
+
+    %% Se estiver claro
+    D -->|Sim| F
+
+    %% Continuação do fluxo
+    F --> G[Descrever como será a entrega]
+    G --> H{Solicitante concordou?}
+
+    H -->|Sim| I([Seguir execução])
+    H -->|Não| C
