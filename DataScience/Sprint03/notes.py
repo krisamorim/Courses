@@ -650,6 +650,424 @@ oceans = pd.Series(['Pacific', 'Atlantic', 'Indian', 'Southern', 'Arctic'],
                    index=[1, 2, 3, 4, 5])
 
 print(oceans.index)
+#Int64Index([1, 2, 3, 4, 5], dtype='int64')
+print(type(oceans.index))
+#<class 'pandas.core.indexes.numeric.Int64Index'>
+
+#vamos definir os valores de índice como strings e ver qual tipo de dados teremos no índice:
+oceans = pd.Series(['Pacific', 'Atlantic', 'Indian', 'Southern', 'Arctic'],
+                   index=['A', 'B', 'C', 'D', 'E'])
+
+print(oceans)
+print()
+print(oceans.index)
 print(type(oceans.index))
 
+# A     Pacific
+# B    Atlantic
+# C      Indian
+# D    Southern
+# E      Arctic
+# dtype: object
+
+# Index(['A', 'B', 'C', 'D', 'E'], dtype='object')
+# <class 'pandas.core.indexes.base.Index'>
+
+
+#REVISÃO SOBRE loc[]
+
+#criando um DataFrame:
+
+
+import pandas as pd
+
+states  = ['Alabama', 'Alaska', 'Arizona', 'Arkansas']
+flowers = ['Camellia', 'Forget-me-not', 'Saguaro cactus blossom', 'Apple blossom']
+insects = ['Monarch butterfly', 'Four-spotted skimmer dragonfly', 'Two-tailed swallowtail', 'European honey bee']
+index   = ['state 1', 'state 2', 'state 3', 'state 4']
+
+df = pd.DataFrame({'state': states, 'flower': flowers, 'insect': insects}, index=index)
+
+print(df)
+#          state              flower                   insect
+# state 1   Alabama           Camellia                 Monarch butterfly
+# state 2    Alaska           Forget-me-not            Four-spotted skimmer dragonfly
+# state 3   Arizona           Saguaro cactus blossom   Two-tailed swallowtail
+# state 4  Arkansas           Apple blossom            European honey bee
+
+Podemos acessar elementos do DataFrame com loc[] passando valores de índice e nomes de colunas, como df.loc[index_value, col_name]. Assim, veja como podemos obter o inseto do estado de Arkansas:
+
+print(df.loc['state 4', 'insect'])
+#European honey bee
+
+# Também podemos usar loc[] para obter vários elementos como um objeto Series ou outro DataFrame. Para obter vários elementos, tudo o que você precisa fazer é passar para loc[] uma lista de índices e uma lista de colunas da seguinte maneira: df.loc[[index_value_1, index_value_1], [col_name_1, col_name_2]]
+
+filtered_df = df.loc[["state 1", "state 3"],['flower', 'insect']]
+print(filtered_df)
+#                         flower                  insect
+#state 1                Camellia       Monarch butterfly
+#state 3  Saguaro cactus blossom  Two-tailed swallowtail
+
+usar indexação para obter um intervalo de índices para uma única coluna. Para fazer isso, precisamos apenas especificar o primeiro e o último índice separados por um caractere :. Aqui está um exemplo que retorna as flores dos três primeiros índices de um DataFrame:
+
+print(df.loc['state 1': 'state 3', 'flower'])
+# state 1                  Camellia
+# state 2             Forget-me-not
+# state 3    Saguaro cactus blossom
+# Name: flower, dtype: object
+
+#De forma parecida, você pode selecionar várias colunas, bem como vários índices:
+
+print(df.loc['state 1': 'state 3', 'flower': 'insect'])
+#                         flower                          insect
+# state 1                Camellia               Monarch butterfly
+# state 2           Forget-me-not  Four-spotted skimmer dragonfly
+# state 3  Saguaro cactus blossom          Two-tailed swallowtail
+
+
+#obter apenas a coluna 'insect de todos os estados, exceto Alabama. 
+df.loc['state 2':, 'insect']
+
+#tabela de comandos de sintaxe de loc[]:
+#+-------------------------------------------+----------------------------------+
+#| Tipo                                      | Exemplo                         |
+#+-------------------------------------------+----------------------------------+
+#| Uma célula                                | .loc['state 3', 'flower']       |
+#| Uma coluna                                | .loc[:, 'state']                |
+#| Múltiplas colunas                         | .loc[:, ['flower', 'insect']]   |
+#| Múltiplas colunas consecutivas (fatia)    | .loc[:, 'state':'insect']       |
+#| Uma linha                                 | .loc['state 1']                 |
+#| Todas as linhas, começando                | .loc['state 2':]                |
+#| com a linha especificada                  |                                  |
+#| Todas as linhas, até a linha              | .loc[:'state 3']                |
+#| especificada                              |                                  |
+#| Múltiplas linhas consecutivas (fatia)     | .loc['state 2':'state 4']       |
+#+-------------------------------------------+----------------------------------+
+
+
+#Indexação usando iloc[]
+#Enquanto loc[] usa rótulos de índices e colunas para acessar elementos, iloc[] usa números inteiros para designar as posições dos elementos que você deseja obter.
+#Dataframe
+#            state                  flower                          insect
+#state 1   Alabama                Camellia               Monarch butterfly
+#state 2    Alaska           Forget-me-not  Four-spotted skimmer dragonfly
+#state 3   Arizona  Saguaro cactus blossom          Two-tailed swallowtail
+#state 4  Arkansas           Apple blossom              European honey bee
+
+print(df.iloc[3, 2])
+#European honey bee
+
+#no loc: df.loc[['state 1', 'state 3'], ['flower', 'insect']]
+#no iloc: df.iloc[[0, 2], [1:]]
+#                          flower                  insect
+# state 1                Camellia       Monarch butterfly
+# state 3  Saguaro cactus blossom  Two-tailed swallowtail
+
+#A propósito, você também pode usar indexação negativa. Aqui está um exemplo que seleciona a última coluna (que tem o índice Python de -1) e a primeira e a terceira linhas (os índices Python 0 e 2):
+
+print(df.iloc[[0, 2], -1])
+#state 1         Monarch butterfly
+#state 3    Two-tailed swallowtail
+#Name: insect, dtype: object
+
+#Alteração do índice de um DataFrame usando o método set_index()
+
+df = df.set_index('state') # substitui o índice padrão por uma coluna do DataFrame, nesse caso a coluna 'state'
+print(df)
+#                           flower                          insect
+# state                                                           
+# Alabama                 Camellia               Monarch butterfly
+# Alaska             Forget-me-not  Four-spotted skimmer dragonfly
+# Arizona   Saguaro cactus blossom          Two-tailed swallowtail
+# Arkansas           Apple blossom              European honey bee
+
+print(df.index)
+# Index(['Alabama', 'Alaska', 'Arizona', 'Arkansas'], dtype='object', name='state')
+
+#O nome da coluna state será inserido como indice zero, para que isso não ocorra utilize o comando abaixo
+
+df.index.name = None
+print(df)
+#                           flower                          insect
+# Alabama                 Camellia               Monarch butterfly
+# Alaska             Forget-me-not  Four-spotted skimmer dragonfly
+# Arizona   Saguaro cactus blossom          Two-tailed swallowtail
+# Arkansas           Apple blossom              European honey bee
+print(df.index)
+# Index(['Alabama', 'Alaska', 'Arizona', 'Arkansas'], dtype='object')
+
+
+#Filtragem com strings de consulta e o método query()
+No data frame df = pd.read_csv('/datasets/vg_sales.csv') temos a seguinte saida para df.head() e df.info():
++---------------------------+----------+-----------------+--------------+-----------+-----------+----------+----------+----------+--------------+------------+
+| name                      | platform | year_of_release | genre        | publisher | developer | na_sales | eu_sales | jp_sales | critic_score | user_score |
++---------------------------+----------+-----------------+--------------+-----------+-----------+----------+----------+----------+--------------+------------+
+| Wii Sports                | Wii      | 2006.0          | Sports       | Nintendo  | Nintendo  | 41.36    | 28.96    | 3.77     | 76.0         | 8.0        |
+| Super Mario Bros.         | NES      | 1985.0          | Platform     | Nintendo  | NaN       | 29.08    | 3.58     | 6.81     | NaN          | NaN        |
+| Mario Kart Wii            | Wii      | 2008.0          | Racing       | Nintendo  | Nintendo  | 15.68    | 12.76    | 3.79     | 82.0         | 8.3        |
+| Wii Sports Resort         | Wii      | 2009.0          | Sports       | Nintendo  | Nintendo  | 15.61    | 10.93    | 3.28     | 80.0         | 8.0        |
+| Pokemon Red/Pokemon Blue  | GB       | 1996.0          | Role-Playing | Nintendo  | NaN       | 11.27    | 8.89     | 10.22    | NaN          | NaN        |
++---------------------------+----------+-----------------+--------------+-----------+-----------+----------+----------+----------+--------------+------------+
+
+
+DataFrame Info
+==============
+
++-----------------+--------+------------+----------+
+| Column          | NonNull| Dtype      | Missing  |
++-----------------+--------+------------+----------+
+| name            | 16717  | object     | 0        |
+| platform        | 16717  | object     | 0        |
+| year_of_release | 16448  | float64    | 269      |
+| genre           | 16717  | object     | 0        |
+| publisher       | 16663  | object     | 54       |
+| developer       | 10096  | object     | 6621     |
+| na_sales        | 16717  | float64    | 0        |
+| eu_sales        | 16717  | float64    | 0        |
+| jp_sales        | 16717  | float64    | 0        |
+| critic_score    | 8137   | float64    | 8580     |
+| user_score      | 7590   | float64    | 9127     |
++-----------------+--------+------------+----------+
+
+Total de registros: 16.717
+Total de colunas:   11
+Uso de memória:     ~1.4 MB
+
+Há muitas colunas no conjunto de dados. Muitas delas são autoexplicativas, mas vamos detalhar algumas daquelas que talvez não sejam:
+
+'platform': é o console para o qual o jogo foi lançado
+'xx_sales': são as vendas para a América do Norte (NA), Europa (EU) e Japão (JP) em milhões de dólares
+'critic_score': é a nota de 0 a 100 dada ao jogo pelos críticos
+'user_score': é a nota de 0 a 100 dada ao jogo pelos consumidores
+
+
+Vamos filtrar os dados de forma que apenas selecionemos os jogos cujas vendas no Japão foram de pelo menos um milhão de dólares:
+mask = df['jp_sales'] >= 1
+print(df[mask][['name', 'jp_sales']])
+
+Temos a seguinte saída:
++------+----------------------------------------------+----------+
+| idx  | name                                         | jp_sales |
++------+----------------------------------------------+----------+
+| 0    | Wii Sports                                   | 3.77     |
+| 1    | Super Mario Bros.                            | 6.81     |
+| 2    | Mario Kart Wii                               | 3.79     |
+| 3    | Wii Sports Resort                            | 3.28     |
+| 4    | Pokemon Red/Pokemon Blue                     | 10.22    |
+| ...  | ...                                          | ...      |
+| 1970 | Tag Team Match M.U.S.C.L.E.                  | 1.05     |
+| 1971 | Derby Stallion 96                            | 1.04     |
+| 1972 | Adventure Island                             | 1.05     |
+| 2051 | Oshare Majo Love and Berry: DS Collection    | 1.01     |
+| 2065 | Jissen Pachi-Slot Hisshouhou: Hokuto no Ken  | 1.00     |
++------+----------------------------------------------+----------+
+
+[243 rows x 2 columns]
+
+No código acima, a variável mask contém um objeto Series com valores True e False. True indica que um valor na coluna 'jp_sales' tem vendas iguais ou maiores que um milhão de dólares, enquanto False indica vendas abaixo desse valor.
+Em seguida, usamos essa máscara para filtrar o DataFrame original com df[mask] e selecionar duas colunas de interesse: ['name', 'jp_sales'].
+Para simplificar, estamos visualizando apenas as colunas 'name' e 'jp_sales'. É claro, poderíamos ter feito isso sem criar a variável mask e simplesmente colocado a expressão de máscara na nossa linha de filtragem no código. Aqui está como isso seria:  print(df[df['jp_sales'] >= 1][['name', 'jp_sales']])
+
+# filtragem usando o método query()
+print(df.query("jp_sales > 1")[['name', 'jp_sales']])
+
+Para filtrar usando query() com base nas comparações de strings, você precisa colocar a string entre aspas. Por exemplo, vamos selecionar apenas os jogos publicados pela Nintendo:
+print(df.query("publisher == 'Nintendo'")[['name', 'publisher']])
+
+#                        name publisher
+# 0                Wii Sports  Nintendo
+# 1         Super Mario Bros.  Nintendo
+# 2            Mario Kart Wii  Nintendo
+# 3         Wii Sports Resort  Nintendo
+# 4  Pokemon Red/Pokemon Blue  Nintendo
+
+#TAREFA 1
+Agora use query() para filtrar os dados. Mantenha apenas as linhas em que as colunas 'publisher' e 'developer' têm os mesmos valores. Seu objetivo é verificar a igualdade entre as duas colunas. Para isso, selecione o operador lógico que faz isso.
+
+A variável cols, que já está presente no pré-código, especifica as colunas que queremos selecionar do resultado da consulta. Para selecionar apenas as colunas de interesse, use a variável cols imediatamente após o método query(). Aqui está a sintaxe: df.query(...)[cols].
+
+Por fim, atribua o resultado a uma variável chamada df_filtered e imprima as 5 primeiras linhas.
+
+import pandas as pd
+
+df = pd.read_csv('/datasets/vg_sales.csv')
+
+cols = ['name', 'publisher', 'developer']
+
+df_filtered = df.query("publisher == developer")[cols]
+print(df_filtered.head())
+
+# Filtragem usando o método isin()
+
+import pandas as pd
+df = pd.read_csv('/datasets/vg_sales.csv')
+handhelds = ['3DS', 'DS', 'GB', 'GBA', 'PSP']
+print(df[df['platform'].isin(handhelds)][['name', 'platform']])
+
+
+#                                                     name platform
+# 4                               Pokemon Red/Pokemon Blue       GB
+# 5                                                 Tetris       GB
+# 6                                  New Super Mario Bros.       DS
+# 10                                            Nintendogs       DS
+# 11                                         Mario Kart DS       DS
+# ...                                                  ...      ...
+# 16702                           Mezase!! Tsuri Master DS       DS
+# 16703  Eiyuu Densetsu: Sora no Kiseki Material Collec...      PSP
+# 16706                                           Plushees       DS
+# 16710                 Woody Woodpecker in Crazy Castle 5      GBA
+# 16715                                   Spirits & Spells      GBA
+
+# [4801 rows x 2 columns]
+
+df['platform'].isin(handhelds) verifica se os valores na coluna 'platform' são iguais a um dos valores da lista handhelds, que representa os consoles portáteis.
+df[df['platform'].isin(handhelds)] filtra o DataFrame mantendo apenas as linhas retornadas como resultado da verificação da igualdade que executamos na etapa anterior.
+Por fim, selecionamos apenas duas colunas do DataFrame filtrado: ['name', 'platform'] descartando o resto das colunas. Lembre-se de que usamos colchetes duplos para selecionar várias colunas, por isso o código acima tem [['name', 'platform']].
+Poderíamos ter feito a mesma filtragem verificando se 'platform' era igual a '3DS' ou 'DS' ou 'GB', etc. Usar isin() é muito mais conveniente quando temos muitas condições para verificar. Imagine se quiséssemos verificar a existência em uma lista com dezenas ou centenas de valores!
+
+podemos filtrar o DataFrame original extraindo apenas as linhas em que os valores na coluna 'platform' não estão na lista handhelds:
+
+print(df[~df['platform'].isin(handhelds)][['name', 'platform']])
+
+#comando anterior:
+print(df[df['platform'].isin(handhelds)][['name', 'platform']])
+
+#                                                                                                     name platform
+# 0                                            Wii Sports      Wii
+# 1                                     Super Mario Bros.      NES
+# 2                                        Mario Kart Wii      Wii
+# 3                                     Wii Sports Resort      Wii
+# 7                                              Wii Play      Wii
+# ...                                                 ...      ...
+# 16711  SCORE International Baja 1000: The Official Game      PS2
+# 16712                     Samurai Warriors: Sanada Maru      PS3
+# 16713                                  LMA Manager 2007     X360
+# 16714                           Haitaka no Psychedelica      PSV
+# 16716                               Winning Post 8 2016      PSV
+
+# [11916 rows x 2 columns]
+
+
+#Filtragem usando a query
+Também podemos verificar a existência de algo usando o método query() com a palavra-chave in na string de consulta.
+
+Vamos ver como isso funciona em uma filtragem igual à anterior:
+print(df.query("platform in @handhelds")[['name', 'platform']])
+
+#sem query:
+#print(df[df['platform'].isin(handhelds)][['name', 'platform']])
+
+Como alternativa, você pode encontrar as linhas que não estão na lista usando a palavra-chave not in:
+
+print(df.query("platform not in @handhelds")[['name', 'platform']])
+
+Como a variável handhelds é externa ao DataFrame, temos que iniciá-la com o símbolo @ na string de consulta. Caso contrário, a pandas vai tentar encontrar uma coluna chamada 'handhelds' e vai exibir um erro quando não conseguir encontrá-la.
+
+Tarefa 1
+Imprima uma lista de todos os gêneros únicos no conjunto de dados chamando o método unique() na coluna 'genre'.
+
+import pandas as pd
+
+df = pd.read_csv('/datasets/vg_sales.csv')
+
+unique_genres = df['genre'].unique()
+print(unique_genres)
+#['Sports' 'Platform' 'Racing' 'Role-Playing' 'Puzzle' 'Misc' 'Shooter'
+ 'Simulation' 'Action' 'Fighting' 'Adventure' 'Strategy']
+
+ Tarefa 2
+No pré-código, você tem duas variáveis:
+
+cols, que contém as colunas de interesse: 'name' e 'genre'.
+s_genres, que é uma lista de gêneros começando com a letra "S".
+Seu objetivo é usar o método isin() com a lista dada s_genres para filtrar o DataFrame df de maneira a manter apenas as linhas onde o gênero de jogo não comece com a letra "S".
+
+Depois de filtrar o DataFrame, use a variável cols para selecionar apenas as colunas 'name' e 'genre' e atribuir o resultado a uma variável chamada df_filtered. Por fim, imprima.
+
+import pandas as pd
+
+df = pd.read_csv('/datasets/vg_sales.csv')
+
+cols = ['name', 'genre']
+s_genres = ['Shooter', 'Simulation', 'Sports', 'Strategy']
+
+df_filtered = df[~df['genre'].isin(s_genres)][cols]
+print(df_filtered)
+
+#                                                    name         genre
+# 1                                     Super Mario Bros.      Platform
+# 2                                        Mario Kart Wii        Racing
+# 4                              Pokemon Red/Pokemon Blue  Role-Playing
+# 5                                                Tetris        Puzzle
+# 6                                 New Super Mario Bros.      Platform
+# ...                                                 ...           ...
+# 16710                Woody Woodpecker in Crazy Castle 5      Platform
+# 16711  SCORE International Baja 1000: The Official Game        Racing
+# 16712                     Samurai Warriors: Sanada Maru        Action
+# 16714                           Haitaka no Psychedelica     Adventure
+# 16715                                  Spirits & Spells      Platform
+
+# [11489 rows x 2 columns]
+
+Tarefa 3
+Filtre todos os gêneros que não começam com "S" novamente, mas desta vez faça isso usando o método query(). Você vai precisar usar a palavra-chave not in na string de consulta para fazer isso. Use cols para selecionar apenas as colunas 'name' e 'genre' e atribua o resultado a uma variável chamada df_filtered. Por fim, imprima.
+
+import pandas as pd
+
+df = pd.read_csv('/datasets/vg_sales.csv')
+
+cols = ['name', 'genre']
+s_genres = ['Shooter', 'Simulation', 'Sports', 'Strategy']
+
+# escreva seu código aqui
+df_filtered = df.query("genre not in @s_genres")[cols]
+
+print(df_filtered)
+
+#                                                    name         genre
+# 1                                     Super Mario Bros.      Platform
+# 2                                        Mario Kart Wii        Racing
+# 4                              Pokemon Red/Pokemon Blue  Role-Playing
+# 5                                                Tetris        Puzzle
+# 6                                 New Super Mario Bros.      Platform
+# ...                                                 ...           ...
+# 16710                Woody Woodpecker in Crazy Castle 5      Platform
+# 16711  SCORE International Baja 1000: The Official Game        Racing
+# 16712                     Samurai Warriors: Sanada Maru        Action
+# 16714                           Haitaka no Psychedelica     Adventure
+# 16715                                  Spirits & Spells      Platform
+
+# [11489 rows x 2 columns]
+
+#Uso de estruturas de dados externas para filtrar DataFrames
+Para ilustrar o papel de índices na filtragem, vamos criar nossos próprios DataFrames neste capítulo. Vamos revisar brevemente como usar uma lista externa para filtrar o nosso DataFrame com query(). Para descobrir se os valores da coluna 'a' estão na lista our_list, vamos escrever a consulta "a in @our_list" (a em @our_list).
+
+import pandas as pd
+
+our_list = [2, 5, 10]
+df = pd.DataFrame(
+    {
+        'a': [2, 3, 10, 11, 12],
+        'b': [5, 4, 3, 2, 1],
+        'c': ['X', 'Y', 'Y', 'Y', 'Z'],
+    }
+)
+print(df)
+print()
+print(our_list)
+print()
+print(df.query("a in @our_list"))
+
+#     a  b  c
+# 0   2  5  X
+# 1   3  4  Y
+# 2  10  3  Y
+# 3  11  2  Y
+# 4  12  1  Z
+
+# [2, 5, 10]
+
+#     a  b  c
+# 0   2  5  X
+# 2  10  3  Y
 '''
